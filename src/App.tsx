@@ -21,11 +21,12 @@ export const App = () => {
           background: "black"
         }}
         camera={{
-          position: [3, 3, 3]
+          position: [1, 1, 1]
         }}
       >
+        {/* <fog attach={"fog"} args={["white", .2, 4]}/> */}
         <Mash1 config={{
-          position: [.5, .5, 0],
+          position: [-.3, .5, -.3],
         }} />
         <axesHelper args={[5]} />
         <Orbit />
