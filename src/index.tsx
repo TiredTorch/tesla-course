@@ -1,3 +1,4 @@
+import { CssBaseline } from '@mui/material';
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from './App';
@@ -7,6 +8,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <StrictMode>
-    <App />
+    <CssBaseline>
+      <App />
+    </CssBaseline>
   </StrictMode>
 );
