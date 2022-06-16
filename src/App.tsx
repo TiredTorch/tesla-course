@@ -1,5 +1,7 @@
 import { Box } from "@mui/material"
 import { Canvas } from "@react-three/fiber"
+import { Suspense } from "react"
+import { Background } from "./components/Background/Background"
 import { Bulb } from "./components/Bulb/Bulb"
 import { Floor } from "./components/Floor/Floor"
 import { Mash1 } from "./components/Mash1/Mash1"
@@ -25,12 +27,17 @@ export const App = () => {
         }}
       >
         {/* <fog attach={"fog"} args={["white", .2, 4]}/> */}
-        <Mash1 config={{
-          position: [-.3, .5, -.3],
-        }} />
+        <Suspense fallback={null}>
+          <Mash1 config={{
+            position: [-.3, .5, -.3],
+          }} />
+        </Suspense>
+        <Suspense fallback={null}>
+          <Background />
+        </Suspense>
         <axesHelper args={[5]} />
         <Orbit />
-        <ambientLight 
+        <ambientLight
           intensity={.1}
         />
         <Floor />
