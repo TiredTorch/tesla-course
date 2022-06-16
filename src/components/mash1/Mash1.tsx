@@ -20,9 +20,11 @@ export const Mash1: FC<Mesh1Types> = ({
     <mesh
       ref={ref}
       {...config}
+      castShadow
+      receiveShadow
     >
       <boxBufferGeometry args={[.3, .3, .3]}/>
-      <meshBasicMaterial color={"blue"} />
+      <meshPhysicalMaterial color={"blue"} />
     </mesh>
   )
 }
