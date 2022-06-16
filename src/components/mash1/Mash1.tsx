@@ -1,6 +1,6 @@
 import { FC, useRef } from "react"
 import { DoubleSide, Mesh, TextureLoader } from "three"
-import { useFrame, useLoader } from "@react-three/fiber"
+import { ThreeEvent, useFrame, useLoader } from "@react-three/fiber"
 import { Mesh1Types } from "./Mash1.types"
 import wood from "../../assets/wood.jpg"
 
@@ -12,20 +12,34 @@ export const Mash1: FC<Mesh1Types> = ({
 
   const texture = useLoader(TextureLoader, wood)
 
-  useFrame(() => {
+  useFrame(({ clock }) => {
     if (ref.current) {
       ref.current.rotation.y += .01;
+      ref.current.position.y += (Math.cos(clock.elapsedTime * 3) / 200)
     }
   })
+
+  const onMouseEnter = (e: ThreeEvent<PointerEvent>) => {
+    e.object.scale.x = 1.5;
+    e.object.scale.y = 1.5;
+    e.object.scale.z = 1.5;
+  }
+  const onMouseExit = (e: ThreeEvent<PointerEvent>) => {
+    e.object.scale.x = 1;
+    e.object.scale.y = 1;
+    e.object.scale.z = 1;
+  }
 
   return (
     <mesh
       ref={ref}
       {...config}
       castShadow
+      onPointerEnter={onMouseEnter}
+      onPointerLeave={onMouseExit}
       // receiveShadow
     >
-      <sphereBufferGeometry args={[.3, 200, 200]} />
+      <boxBufferGeometry args={[.3, .3, .3]} />
       <meshPhysicalMaterial
         map={texture}
         // //1

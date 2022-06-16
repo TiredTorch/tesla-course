@@ -38,7 +38,7 @@ export const App = () => {
         <axesHelper args={[5]} />
         <Orbit />
         <ambientLight
-          intensity={.1}
+          intensity={.02}
         />
         <Floor />
         <Bulb />
