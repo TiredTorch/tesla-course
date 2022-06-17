@@ -6,19 +6,12 @@ import { useSphere } from "@react-three/cannon"
 
 export const BasicSphere: FC<any> = ({ phisProp }) => {
 
-  const [ref, api] = useSphere<any>(() => ({ mass: 1, ...phisProp }))
+  const [ref, api] = useSphere<any>(() => ({ mass: 1, args: [2, 100, 100], ...phisProp }))
   const texture = useLoader(TextureLoader, modelTexture);
-
-  useEffect(() => {
-    api.mass.set(0)
-  }, [])
-  
 
   return (
     <mesh
       ref={ref}
-      scale={1}
-      position={new Vector3(0, 2, 0)}
     >
       <sphereBufferGeometry
         attach={"geometry"}

@@ -1,5 +1,5 @@
 import { Box } from "@mui/material"
-import { Physics } from "@react-three/cannon"
+import { Debug, Physics } from "@react-three/cannon"
 import { Canvas } from "@react-three/fiber"
 import { Suspense, useState } from "react"
 import { Provider } from "react-redux"
@@ -30,18 +30,22 @@ export const App = () => {
         <Physics>
           <Suspense fallback={null}>
             <Background />
+
+
             <BasicSphere
               phisProp={{
-                position: [0, 5, 0]
+                position: [3, 5, 0]
               }}
             />
-            <Floor
-              phisProp={{
-                position: [0, -.5, 2],
-                rotation: [0, 0, 0]
-              }}
-            />
-            <Car />
+            <Debug color={"red"} scale={1}>
+              <Car />
+              <Floor
+                phisProp={{
+                  position: [0, -1.5, 2],
+                  rotation: [0, 0, 0]
+                }}
+              />
+            </Debug>
           </Suspense>
         </Physics>
         <CanvasHelper />
