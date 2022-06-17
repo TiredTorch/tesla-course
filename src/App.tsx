@@ -39,6 +39,7 @@ export const App = () => {
             />
             <Debug color={"red"} scale={1}>
               <Car />
+              <Car />
               <Floor
                 phisProp={{
                   position: [0, -1.5, 2],
