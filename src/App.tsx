@@ -6,6 +6,7 @@ import { Provider } from "react-redux"
 import { CanvasHelper } from "./component/CanvasHelper/CanvasHelper"
 import { Background } from "./component/Meshes/Background/Background"
 import { BasicSphere } from "./component/Meshes/BasicSphere/BasicSphere"
+import { Car } from "./component/Meshes/Car/Car"
 import { Floor } from "./component/Meshes/Floor/Floor"
 
 export const App = () => {
@@ -36,10 +37,11 @@ export const App = () => {
             />
             <Floor
               phisProp={{
-                position: [0, -3, 2],
-                rotation: [Math.PI / 4, 0, 0]
+                position: [0, -.5, 2],
+                rotation: [0, 0, 0]
               }}
             />
+            <Car />
           </Suspense>
         </Physics>
         <CanvasHelper />

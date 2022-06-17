@@ -11,7 +11,6 @@ export const BasicSphere: FC<any> = ({ phisProp }) => {
 
   useEffect(() => {
     api.mass.set(0)
-  
   }, [])
   
 
