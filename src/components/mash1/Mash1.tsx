@@ -5,13 +5,14 @@ import { Mesh1Types } from "./Mash1.types"
 import wood from "../../assets/wood.jpg"
 
 export const Mash1: FC<Mesh1Types> = ({
-  config
+  config,
+  setOrbitActive
 }) => {
 
   const ref = useRef<Mesh>(null)
-
   const texture = useLoader(TextureLoader, wood)
 
+  
   useFrame(({ clock }) => {
     if (ref.current) {
       ref.current.rotation.y += .01;
@@ -20,11 +21,13 @@ export const Mash1: FC<Mesh1Types> = ({
   })
 
   const onMouseEnter = (e: ThreeEvent<PointerEvent>) => {
+    setOrbitActive(false);
     e.object.scale.x = 1.5;
     e.object.scale.y = 1.5;
     e.object.scale.z = 1.5;
   }
   const onMouseExit = (e: ThreeEvent<PointerEvent>) => {
+    setOrbitActive(true);
     e.object.scale.x = 1;
     e.object.scale.y = 1;
     e.object.scale.z = 1;

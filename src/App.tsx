@@ -1,11 +1,12 @@
 import { Box } from "@mui/material"
 import { Canvas } from "@react-three/fiber"
-import { Suspense } from "react"
-import { Background } from "./components/Background/Background"
-import { Bulb } from "./components/Bulb/Bulb"
-import { Floor } from "./components/Floor/Floor"
-import { Mash1 } from "./components/Mash1/Mash1"
-import { Orbit } from "./components/Orbit/Orbit"
+import { Suspense, useState } from "react"
+import { Provider } from "react-redux"
+import { CanvasHelper } from "./component/CanvasHelper/CanvasHelper"
+import { Background } from "./component/Meshes/Background/Background"
+import { BasicSphere } from "./component/Meshes/BasicSphere/BasicSphere"
+import { Floor } from "./component/Meshes/Floor/Floor"
+import { store } from "./redux/store"
 
 export const App = () => {
 
@@ -14,35 +15,25 @@ export const App = () => {
       component={"div"}
       sx={{
         height: "100vh",
-        widht: "100vw"
+        width: "100vw"
       }}
     >
       <Canvas
-        shadows
         style={{
           background: "black"
         }}
         camera={{
-          position: [1, 1, 1]
+          position: [6, 4, -5]
         }}
       >
-        {/* <fog attach={"fog"} args={["white", .2, 4]}/> */}
         <Suspense fallback={null}>
-          <Mash1 config={{
-            position: [-.3, .5, -.3],
-          }} />
-        </Suspense>
-        <Suspense fallback={null}>
-          <Background />
-        </Suspense>
-        <axesHelper args={[5]} />
-        <Orbit />
-        <ambientLight
-          intensity={.02}
-        />
-        <Floor />
-        <Bulb />
+            <Background />
+            <BasicSphere/>
+            <Floor />
+          </Suspense>
+          <CanvasHelper/>
       </Canvas>
+
     </Box>
   )
 }
