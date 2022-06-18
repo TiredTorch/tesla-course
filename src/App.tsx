@@ -3,6 +3,7 @@ import { Debug, Physics } from "@react-three/cannon"
 import { Canvas } from "@react-three/fiber"
 import { Suspense, useState } from "react"
 import { Provider } from "react-redux"
+import { CameraButtons } from "./component/CameraButtons/CameraButtons"
 import { CanvasHelper } from "./component/CanvasHelper/CanvasHelper"
 import { Background } from "./component/Meshes/Background/Background"
 import { BasicSphere } from "./component/Meshes/BasicSphere/BasicSphere"
@@ -34,11 +35,10 @@ export const App = () => {
 
             <BasicSphere
               phisProp={{
-                position: [3, 5, 0]
+                position: [0, 3, 8]
               }}
             />
             <Debug color={"red"} scale={1}>
-              <Car />
               <Car />
               <Floor
                 phisProp={{
@@ -51,7 +51,7 @@ export const App = () => {
         </Physics>
         <CanvasHelper />
       </Canvas>
-
+      <CameraButtons />
     </Box>
   )
 }
