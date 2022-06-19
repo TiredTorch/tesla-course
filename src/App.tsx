@@ -4,6 +4,7 @@ import { Canvas } from "@react-three/fiber"
 import { Suspense, useState } from "react"
 import { Provider } from "react-redux"
 import { CameraButtons } from "./component/CameraButtons/CameraButtons"
+import { Bulb } from "./component/CanvasHelper/Bulb/Bulb"
 import { CanvasHelper } from "./component/CanvasHelper/CanvasHelper"
 import { ColorSelector } from "./component/ColorSelector/ColorSelector"
 import { Background } from "./component/Meshes/Background/Background"
@@ -22,6 +23,7 @@ export const App = () => {
       }}
     >
       <Canvas
+        shadows
         style={{
           background: "black"
         }}
@@ -39,25 +41,26 @@ export const App = () => {
                 position: [0, 3, 8]
               }}
             /> */}
-            <Debug color={"red"} scale={1}>
-              <Car 
-                offset={[0, 2, 0]}
-                position={[0, -.75, 0]}
-                rotation={[0, Math.PI / 2, 0]}
-                modelPath={"assets/1car/scene.gltf"}
-              />
-              <Car 
-              offset={[0, 2, 8]}
+            <Car
+              offset={[0, 0, 0]}
+              position={[0, -.75, 0]}
+              rotation={[0, Math.PI / 2, 0]}
+              modelPath={"assets/1car/scene.gltf"}
+            />
+            <Car
+              offset={[0, 0, 8]}
               position={[0, -.75, 0]}
               modelPath={"assets/2car/scene.gltf"}
-              />
-              <Floor
-                phisProp={{
-                  position: [0, -1.5, 2],
-                  rotation: [0, 0, 0]
-                }}
-              />
-            </Debug>
+            />
+            <Floor
+              phisProp={{
+                position: [0, -1.5, 3.5],
+                rotation: [0, 0, 0]
+              }}
+            />
+            <Bulb
+              position={[0, 6, 4.5]}
+            />
           </Suspense>
         </Physics>
         <CanvasHelper />

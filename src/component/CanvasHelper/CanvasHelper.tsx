@@ -8,10 +8,10 @@ export const CanvasHelper: FC<any> = () => {
   
   return (
     <>
-      <CameraControl />
+      {/* <CameraControl /> */}
       <PassiveLight />
       <Orbit/>
-      <axesHelper args={[5]}/>
+      {/* <axesHelper args={[5]}/> */}
     </>
   )
 }

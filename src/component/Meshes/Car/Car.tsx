@@ -1,6 +1,7 @@
 import { useBox } from "@react-three/cannon"
 import { ObjectMap, useLoader } from "@react-three/fiber"
 import { FC, useEffect } from "react"
+import { FrontSide } from "three"
 import { GLTF, GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
 
 
@@ -18,12 +19,23 @@ export const Car: FC<any> = ({
 
   }, [])
 
+  model.scene.traverse((child: any) => {
+    if (child.isMesh) {
+      console.log(11)
+      child.castShadow = true;
+      child.receiveShadow = true;
+      child.material.side = FrontSide
+    }
+  })
 
   return (
     <group
-      ref={ref}>
+      ref={ref}
+      castShadow
+      receiveShadow
+      >
       <primitive
-        castShadow
+        rec
         object={model.scene}
         scale={[1, 1, 1]}
         position={position}

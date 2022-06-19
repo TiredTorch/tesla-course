@@ -8,7 +8,7 @@ export const Bulb = () => {
       <sphereBufferGeometry args={[.2, 100, 100, 100]}/>
       <meshPhongMaterial emissive={"yellow"}/>
       <pointLight 
-          intensity={.1}
+          intensity={1}
           castShadow
           />
     </mesh>
