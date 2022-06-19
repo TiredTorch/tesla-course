@@ -10,7 +10,7 @@ export const Bulb: FC<any> = ({
       <sphereBufferGeometry args={[.3, 100, 100]} />
       <meshPhongMaterial emissive={"yellow"} />
       <pointLight
-        intensity={.9}
+        intensity={.4}
         castShadow
         shadow-mapSize-height={2**9}
         shadow-mapSize-width={2**9}

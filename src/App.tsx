@@ -1,6 +1,7 @@
 import { Box } from "@mui/material"
 import { Debug, Physics } from "@react-three/cannon"
 import { Canvas } from "@react-three/fiber"
+import { Bloom, DepthOfField, EffectComposer } from "@react-three/postprocessing"
 import { Suspense, useState } from "react"
 import { Provider } from "react-redux"
 import { CameraButtons } from "./component/CameraButtons/CameraButtons"
@@ -34,13 +35,6 @@ export const App = () => {
         <Physics>
           <Suspense fallback={null}>
             <Background />
-
-
-            {/* <BasicSphere
-              phisProp={{
-                position: [0, 3, 8]
-              }}
-            /> */}
             <Car
               offset={[0, 0, 0]}
               position={[0, -.75, 0]}
@@ -63,6 +57,19 @@ export const App = () => {
             />
           </Suspense>
         </Physics>
+        <EffectComposer>
+          <DepthOfField
+            focalLength={.02}
+            focusDistance={0}
+            bokehScale={2}
+            height={480}
+          />
+          <Bloom
+            luminanceThreshold={1}
+            luminanceSmoothing={0.9}
+            height={300}
+          />
+        </EffectComposer>
         <CanvasHelper />
       </Canvas>
       <CameraButtons />

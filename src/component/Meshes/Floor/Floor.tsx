@@ -15,11 +15,13 @@ export const Floor: FC<any> = ({phisProp}) => {
     >
       <boxBufferGeometry
         attach={"geometry"}
-        args={[10, 1, 20, 20, 20, 20]}
+        args={[200, 1, 200]}
       />
       <meshPhysicalMaterial
         attach={"material"}
         color={"white"}
+        transparent
+        opacity={0.5}
       />
     </mesh>
   )

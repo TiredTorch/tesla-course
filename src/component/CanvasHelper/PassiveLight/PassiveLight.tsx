@@ -2,7 +2,7 @@
 export const PassiveLight = () => {
   return (
     <>
-      <ambientLight intensity={.5}/>
+      <ambientLight intensity={.4}/>
     </>
   )
 }
