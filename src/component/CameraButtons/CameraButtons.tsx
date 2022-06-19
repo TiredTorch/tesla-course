@@ -11,12 +11,14 @@ export const CameraButtons = () => {
   const cameraPositions = useMemo(() => {
     return [
       {
-        cameraPos: new Vector3(4, 2, 4),
-        targetPos: new Vector3(0, 0, 7)
+        cameraPos: new Vector3(4, 1, 5.5),
+        targetPos: new Vector3(0, 0, 8), 
+        meshName: "Object_71"
       },
       {
         cameraPos: new Vector3(4, 2, -3),
-        targetPos: new Vector3(0, 0, 0)
+        targetPos: new Vector3(0, 0, 0), 
+        meshName: "LowPoly_Material_0"
       },
     ]
   }, [])
@@ -24,6 +26,7 @@ export const CameraButtons = () => {
   useEffect(() => {
     canvasState.cameraPos = cameraPositions[currentPos].cameraPos
     canvasState.targetPos = cameraPositions[currentPos].targetPos
+    canvasState.activeMashName = cameraPositions[currentPos].meshName
   }, [currentPos, cameraPositions])
 
 

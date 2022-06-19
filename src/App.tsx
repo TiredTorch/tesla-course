@@ -5,6 +5,7 @@ import { Suspense, useState } from "react"
 import { Provider } from "react-redux"
 import { CameraButtons } from "./component/CameraButtons/CameraButtons"
 import { CanvasHelper } from "./component/CanvasHelper/CanvasHelper"
+import { ColorSelector } from "./component/ColorSelector/ColorSelector"
 import { Background } from "./component/Meshes/Background/Background"
 import { BasicSphere } from "./component/Meshes/BasicSphere/BasicSphere"
 import { Car } from "./component/Meshes/Car/Car"
@@ -33,13 +34,23 @@ export const App = () => {
             <Background />
 
 
-            <BasicSphere
+            {/* <BasicSphere
               phisProp={{
                 position: [0, 3, 8]
               }}
-            />
+            /> */}
             <Debug color={"red"} scale={1}>
-              <Car />
+              <Car 
+                offset={[0, 2, 0]}
+                position={[0, -.75, 0]}
+                rotation={[0, Math.PI / 2, 0]}
+                modelPath={"assets/1car/scene.gltf"}
+              />
+              <Car 
+              offset={[0, 2, 8]}
+              position={[0, -.75, 0]}
+              modelPath={"assets/2car/scene.gltf"}
+              />
               <Floor
                 phisProp={{
                   position: [0, -1.5, 2],
@@ -52,6 +63,7 @@ export const App = () => {
         <CanvasHelper />
       </Canvas>
       <CameraButtons />
+      <ColorSelector />
     </Box>
   )
 }
