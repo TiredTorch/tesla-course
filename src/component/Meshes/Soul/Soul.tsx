@@ -1,4 +1,5 @@
 import { useSphere } from '@react-three/cannon'
+import { useGLTF } from '@react-three/drei'
 import { useFrame, useLoader } from '@react-three/fiber'
 import React, { FC } from 'react'
 import { AnimationMixer } from 'three'
@@ -8,7 +9,7 @@ export const Soul: FC<any> = ({
   position,
   rotation
 }) => {
-  const model: any = useLoader(GLTFLoader, "/assets/fish/scene.gltf")
+  const model: any = useLoader(GLTFLoader, "./assets/fish/scene.gltf")
 
   let mixer: any;
 
@@ -37,3 +38,5 @@ export const Soul: FC<any> = ({
     </group>
   )
 }
+
+useGLTF.preload("./assets/fish/scene.gltf")

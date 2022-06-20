@@ -48,12 +48,12 @@ export const App = () => {
               offset={[0, 0, 0]}
               position={[0, -.75, 0]}
               rotation={[0, Math.PI / 2, 0]}
-              modelPath={"/assets/1car/scene.gltf"}
+              modelPath={"./assets/1car/scene.gltf"}
             />
             <Car
               offset={[0, 0, 8]}
               position={[0, -.75, 0]}
-              modelPath={"/assets/2car/scene.gltf"}
+              modelPath={"./assets/2car/scene.gltf"}
             />
             <Floor
               phisProp={{
