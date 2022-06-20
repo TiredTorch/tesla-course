@@ -1,8 +1,8 @@
 import { Box } from "@mui/material"
 import { Debug, Physics } from "@react-three/cannon"
 import { Canvas } from "@react-three/fiber"
-import { Bloom, DepthOfField, EffectComposer } from "@react-three/postprocessing"
-import { Suspense, useState } from "react"
+import { Bloom, DepthOfField, EffectComposer, GodRays } from "@react-three/postprocessing"
+import { Suspense, useRef, useState } from "react"
 import { Provider } from "react-redux"
 import { CameraButtons } from "./component/CameraButtons/CameraButtons"
 import { Bulb } from "./component/CanvasHelper/Bulb/Bulb"
@@ -14,6 +14,8 @@ import { Car } from "./component/Meshes/Car/Car"
 import { Floor } from "./component/Meshes/Floor/Floor"
 
 export const App = () => {
+
+  const [lights, setLights] = useState<any>([])
 
   return (
     <Box
@@ -30,6 +32,12 @@ export const App = () => {
         }}
         camera={{
           position: [6, 4, -5]
+        }}
+        gl={{
+          powerPreference: "high-performance",
+          antialias: false,
+          stencil: false,
+          depth: false
         }}
       >
         <Physics>
@@ -53,7 +61,9 @@ export const App = () => {
               }}
             />
             <Bulb
-              position={[0, 6, 4.5]}
+              lights={lights}
+              setLights={setLights}
+              position={[0, 2, 4.5]}
             />
           </Suspense>
         </Physics>
@@ -69,6 +79,14 @@ export const App = () => {
             luminanceSmoothing={0.9}
             height={300}
           />
+          {
+            (lights.length > 0) && (
+              lights.map((item: any) => {
+                console.log(item)
+                return <GodRays sun={item} />
+              })
+            )
+          }
         </EffectComposer>
         <CanvasHelper />
       </Canvas>

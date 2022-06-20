@@ -13,15 +13,9 @@ export const Car: FC<any> = ({
 }) => {
   const [ref] = useBox<any>(() => ({ mass: 1, args: [4.5, 1.5, 1.8], position: offset }))
   const model: any = useLoader(GLTFLoader, modelPath)
-
-  useEffect(() => {
-    console.log(ref.current.children[0].children[0].children[0].children[0])
-
-  }, [])
-
+  
   model.scene.traverse((child: any) => {
     if (child.isMesh) {
-      console.log(11)
       child.castShadow = true;
       child.receiveShadow = true;
       child.material.side = FrontSide
