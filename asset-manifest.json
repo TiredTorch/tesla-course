@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/tesla-course/static/js/main.069e82de.js",
+    "main.js": "/tesla-course/static/js/main.3ba3f9ae.js",
     "static/media/autoshop.jpg": "/tesla-course/static/media/autoshop.ba79e6c940c8dc49be50.jpg",
     "index.html": "/tesla-course/index.html",
-    "main.069e82de.js.map": "/tesla-course/static/js/main.069e82de.js.map"
+    "main.3ba3f9ae.js.map": "/tesla-course/static/js/main.3ba3f9ae.js.map"
   },
   "entrypoints": [
-    "static/js/main.069e82de.js"
+    "static/js/main.3ba3f9ae.js"
   ]
 }
