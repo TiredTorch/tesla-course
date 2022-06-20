@@ -1,4 +1,5 @@
 {
+  "homepage": "https://tiredtorch.github.io/tesla-course",
   "name": "tesla-course",
   "version": "0.1.0",
   "private": true,
@@ -37,7 +38,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -58,6 +61,7 @@
     ]
   },
   "devDependencies": {
-    "@types/three": "^0.141.0"
+    "@types/three": "^0.141.0",
+    "gh-pages": "^4.0.0"
   }
 }

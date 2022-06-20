@@ -2,7 +2,7 @@ import { FC, useRef } from "react"
 import { DoubleSide, Mesh, TextureLoader } from "three"
 import { ThreeEvent, useFrame, useLoader } from "@react-three/fiber"
 import { Mesh1Types } from "./Mash1.types"
-import wood from "../../assets/wood.jpg"
+import wood from "/../../assets/wood.jpg"
 
 export const Mash1: FC<Mesh1Types> = ({
   config,
