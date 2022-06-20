@@ -5,12 +5,6 @@ import background from "../../../assets/autoshop.jpg"
 export const Background = () => {
   const texture = useLoader(TextureLoader, background);
 
-  // const { gl } = useThree();
-
-  // const formatted = new WebGLCubeRenderTarget(
-  //   texture.image.height
-  // ).fromEquirectangularTexture(gl, texture);
-
   return (
     <mesh>
       <meshBasicMaterial

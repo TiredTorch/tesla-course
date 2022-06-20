@@ -1,6 +1,6 @@
 import { Box } from '@mui/material'
 import React from 'react'
-import { Color } from 'three'
+import { Color, MeshStandardMaterial } from 'three'
 import { canvasState } from '../../state/state'
 import { colorSelectorStyles } from './ColorSelector.styles'
 
@@ -11,9 +11,8 @@ export const ColorSelector = () => {
   ]
 
   const handleSelectColor = (color: string) => {
-    console.log(color)
-    console.log(canvasState.activeMash.material)
-    canvasState.activeMash.material.color = new Color(color)
+    const material = canvasState.activeMash.material as MeshStandardMaterial
+    material.color = new Color(color)
   }
 
   return (

@@ -1,22 +1,21 @@
-import { useSphere } from '@react-three/cannon'
+import { FC } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useFrame, useLoader } from '@react-three/fiber'
-import React, { FC } from 'react'
-import { AnimationMixer } from 'three'
-import { GLTFLoader } from 'three-stdlib'
+import { AnimationClip, AnimationMixer } from 'three'
+import { GLTF, GLTFLoader } from 'three-stdlib'
+import { SoulProps } from './Soul.types'
 
-export const Soul: FC<any> = ({
+export const Soul: FC<SoulProps> = ({
   position,
   rotation
 }) => {
-  const model: any = useLoader(GLTFLoader, "./assets/fish/scene.gltf")
+  const model: GLTF = useLoader(GLTFLoader, "assets/fish/scene.gltf")
 
-  let mixer: any;
+  let mixer: AnimationMixer;
 
   if (model.animations.length > 0) {
-    console.log(model)
     mixer = new AnimationMixer(model.scene);
-    model.animations.forEach((clip: any) => {
+    model.animations.forEach((clip: AnimationClip) => {
       mixer.clipAction(clip).play();
     })
   }
@@ -39,4 +38,4 @@ export const Soul: FC<any> = ({
   )
 }
 
-useGLTF.preload("./assets/fish/scene.gltf")
+useGLTF.preload("assets/fish/scene.gltf")

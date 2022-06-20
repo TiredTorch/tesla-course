@@ -1,28 +1,12 @@
 import { FC, useEffect, useRef } from "react"
+import { BulbProps } from "./Bulb.types"
 
-export const Bulb: FC<any> = ({
-  position,
-  setLights,
-  lights
+export const Bulb: FC<BulbProps> = ({
+  position
 }) => {
-
-  const ref = useRef<any>(null)
-
-  useEffect(() => {
-    if (ref.current.current) {
-      console.log(ref.current)
-      setLights([
-        ...lights, ref
-      ])
-      console.log(lights)
-    }
-
-  }, [ref])
-
 
   return (
     <mesh
-      ref={ref}
       position={position}
     >
       <sphereBufferGeometry args={[.3, 100, 100]} />

@@ -1,5 +1,5 @@
 import { useFrame } from "@react-three/fiber"
-import { Vector3 } from "three"
+import { SkinnedMesh, Vector3 } from "three"
 import { canvasState } from "../../../state/state"
 
 export const CameraControl = () => {
@@ -8,7 +8,7 @@ export const CameraControl = () => {
     if (canvasState.activeMash?.name !== canvasState.activeMashName) {
       canvasState.activeMash = scene.getObjectByName(
         canvasState.activeMashName
-      ) || {}
+      ) as SkinnedMesh || {}
     }
     if (canvasState.shouldUpdate) {
       camera.position.lerp(canvasState.cameraPos, 0.1)

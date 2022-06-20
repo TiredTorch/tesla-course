@@ -1,10 +1,10 @@
-import { useBox } from "@react-three/cannon"
-import { useFrame } from "@react-three/fiber"
-import { FC, useEffect } from "react"
+import { FC } from "react"
+import { BoxProps, useBox } from "@react-three/cannon"
+import { Mesh } from "three"
 
-export const Floor: FC<any> = ({phisProp}) => {
+export const Floor: FC<Partial<BoxProps>> = (phisProp) => {
 
-  const [ref] = useBox<any>(() => ({mass: 0 ,args: [10, 1, 20, 20, 20, 20],  ...phisProp}))
+  const [ref] = useBox<Mesh>(() => ({...phisProp, mass: 0 ,args: [10, 1, 20]}))
   
   return (
     <mesh
