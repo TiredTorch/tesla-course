@@ -12,6 +12,7 @@ import { Background } from "./component/Meshes/Background/Background"
 import { BasicSphere } from "./component/Meshes/BasicSphere/BasicSphere"
 import { Car } from "./component/Meshes/Car/Car"
 import { Floor } from "./component/Meshes/Floor/Floor"
+import { Soul } from "./component/Meshes/Soul/Soul"
 
 export const App = () => {
 
@@ -64,6 +65,10 @@ export const App = () => {
               lights={lights}
               setLights={setLights}
               position={[0, 2, 4.5]}
+            />
+            <Soul
+              position={[2, 0, 6]}
+              rotation={[0, Math.PI / 2, 0]}
             />
           </Suspense>
         </Physics>
